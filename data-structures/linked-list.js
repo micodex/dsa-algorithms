@@ -26,9 +26,25 @@ class LinkedList {
       current = current.next; // Traverse to the last node
     }
     current.next = newNode; // Link the last node to the new one
-    console.log(this.head);
   }
 
+  // Method to remove a node by value
+  remove(data) {
+    if (this.head == null) return; // if the list is empty, nothing to remove
+
+    if (this.head.data === data) {
+      this.head = this.head.next; // if head matches, move head forward
+    }
+
+    let current = this.head;
+    while (current.next !== null) {
+      if (current.next.data === data) {
+        current.next = current.next.next; // skip the matching node
+        return;
+      }
+      current = current.next;
+    }
+  }
   // Method to get the size of the list
   size() {
     let count = 0;
@@ -63,10 +79,15 @@ class LinkedList {
 const list = new LinkedList();
 
 list.append(2);
+
 list.prepend(3);
+
 list.append(5);
+list.append(6);
+
+list.remove(6);
 
 list.print();
-list.size();
+console.log("list size: ", list.size());
 
 // enter `node linked-list.js` in the terminal to see the results
