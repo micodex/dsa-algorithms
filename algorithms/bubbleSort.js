@@ -22,4 +22,8 @@ function bubbleSort(list) {
   return list;
 }
 
+// Time complexity:
+// O(n²) in worst/average case.
+// Best case O(n) with the swap flag.
+
 console.log(bubbleSort(numbers));
